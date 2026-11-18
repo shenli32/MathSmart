@@ -22,6 +22,9 @@ const listenButton = document.querySelector("#listen-button");
 
 let currentPracticeAnswer = null;
 let recognition = null;
+let listening = false;
+let listeningDeadline = 0;
+let listeningTimer = null;
 
 function setStatus(message, kind = "") {
   statusText.textContent = message;
@@ -87,16 +90,41 @@ function startListening() {
   recognition?.stop();
   recognition = new SpeechRecognition();
   recognition.lang = "en-US";
-  recognition.interimResults = false;
+  recognition.continuous = true;
+  recognition.interimResults = true;
   recognition.maxAlternatives = 1;
+  listening = true;
+  listeningDeadline = Date.now() + 20_000;
   listenButton.disabled = true;
-  setStatus("Listening… say a math problem.");
+  setStatus("Listening… you have up to 20 seconds. Say your whole math problem.");
+  clearTimeout(listeningTimer);
+  listeningTimer = setTimeout(() => {
+    listening = false;
+    recognition.stop();
+  }, 20_000);
   recognition.onresult = event => {
-    questionInput.value = event.results[0][0].transcript;
-    setStatus("I heard you. Press Check My Math!");
+    let transcript = "";
+    for (let index = 0; index < event.results.length; index += 1) {
+      transcript += event.results[index][0].transcript;
+    }
+    questionInput.value = transcript;
+    setStatus("I’m listening… keep talking, or press Check My Math when you’re done.");
   };
-  recognition.onerror = () => setStatus("I could not hear that. Try again.", "error");
-  recognition.onend = () => { listenButton.disabled = false; };
+  recognition.onerror = () => {
+    listening = false;
+    clearTimeout(listeningTimer);
+    setStatus("I could not hear that. Check microphone permission and try again.", "error");
+  };
+  recognition.onend = () => {
+    if (listening && Date.now() < listeningDeadline) {
+      try { recognition.start(); } catch { /* The browser may already be restarting. */ }
+      return;
+    }
+    listening = false;
+    clearTimeout(listeningTimer);
+    listenButton.disabled = false;
+    if (questionInput.value.trim()) setStatus("I heard you. Press Check My Math!");
+  };
   recognition.start();
 }
 
