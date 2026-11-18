@@ -25,3 +25,12 @@ Run `./start.sh`, then open http://127.0.0.1:3000 in a browser.
 - Test the voice flow with elementary students and improve explanations from their feedback.
 
 Start command: `./start.sh`
+
+## Vercel
+The page stays in `public/`, and Vercel runs `api/ask.js` as the small server function. It reuses the server-only `getKey()` helper, so the MindDo token and AI key stay off the page. Browser saving still uses localStorage.
+
+To put it online, import this GitHub repository into Vercel and set these Project Environment Variables:
+- `KEYGEN_URL`
+- `KEYGEN_TOKEN`
+
+No other Vercel setting is required. The Vercel project should use the repository root and the included `vercel.json`.
