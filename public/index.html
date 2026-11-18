@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MathSmart — Your friendly math helper</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <header class="topbar">
+      <div class="brand"><div class="logo" aria-hidden="true">✦</div><div><h1>MathSmart</h1><p class="tagline">Math help that talks it through.</p></div></div>
+      <div class="progress" id="progress">0 questions · 0 practice problems done</div>
+    </header>
+
+    <section class="hero" aria-labelledby="welcome-title">
+      <div>
+        <p class="eyebrow">Your friendly math helper</p>
+        <h2 id="welcome-title">Ask it out loud. Learn it step by step.</h2>
+        <p>MathSmart listens to your question, explains the answer in small steps, and gives you a similar problem to try. Pick a helper pet to join you!</p>
+      </div>
+      <div class="pet"><span class="pet-emoji" id="pet-emoji" role="img" aria-label="Pip the Fox">🦊</span><label for="pet-select">Choose a helper</label><select id="pet-select"><option value="fox">Pip the Fox</option><option value="owl">Milo the Owl</option><option value="bunny">Sunny the Bunny</option></select></div>
+    </section>
+
+    <section class="card workspace" aria-labelledby="ask-title">
+      <h2 id="ask-title">What math question do you have?</h2>
+      <label for="question">Your question</label>
+      <div class="question-row"><input id="question" autocomplete="off" placeholder="Example: What is 24 ÷ 6?" /><button class="secondary mic" id="listen-button" title="Ask with your voice" aria-label="Ask with your voice">🎙️</button></div>
+      <div class="actions"><button class="primary" id="ask-button">Check My Math</button></div>
+      <p id="status" role="status" aria-live="polite">Press the microphone and say a math problem.</p>
+    </section>
+
+    <section class="card answer" id="answer-card" hidden aria-labelledby="answer-title">
+      <h3 id="answer-title">Here’s the idea</h3>
+      <div id="answer-text"></div>
+      <div class="actions"><button class="secondary" id="practice-button">Try a practice problem</button></div>
+    </section>
+
+    <section class="card practice" id="practice-box" hidden aria-labelledby="practice-title">
+      <h3 id="practice-title">Your turn</h3>
+      <p id="practice-question"></p>
+      <div class="practice-row"><input id="practice-answer" inputmode="numeric" placeholder="Type your answer" /><button class="primary" id="practice-check">Check</button></div>
+      <p class="practice-result" id="practice-result" role="status" aria-live="polite"></p>
+    </section>
+
+    <p class="footer-note">MathSmart is a simple learning helper. Always check important work with a teacher.</p>
+  </main>
+  <script src="/storage.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
