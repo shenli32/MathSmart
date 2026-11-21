@@ -2,6 +2,11 @@ const pets = {
   fox: { name: "Pip the Fox", emoji: "🦊" },
   owl: { name: "Milo the Owl", emoji: "🦉" },
   bunny: { name: "Sunny the Bunny", emoji: "🐰" },
+  cat: { name: "Cleo the Cat", emoji: "🐱" },
+  dog: { name: "Buddy the Dog", emoji: "🐶" },
+  hamster: { name: "Nibbles the Hamster", emoji: "🐹" },
+  turtle: { name: "Shelly the Turtle", emoji: "🐢" },
+  parrot: { name: "Pico the Parrot", emoji: "🦜" },
 };
 
 const petSelect = document.querySelector("#pet-select");
