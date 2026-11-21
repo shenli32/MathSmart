@@ -94,7 +94,7 @@ async function askMath() {
     MathSmartStorage.recordQuestion(question);
     renderProgress();
     speak(body.answer);
-    setStatus("You can try the practice problem below!");
+    setStatus("Use the hint, then try the practice problem below!");
   } catch (error) {
     setStatus(error.message || "Please check the internet and try again.", "error");
   } finally {

@@ -12,7 +12,8 @@ function getAiInstructions() {
   if (start < 0) throw new Error("The AI instructions are missing from BRIEF.md.");
   const rest = brief.slice(start);
   const nextSection = rest.indexOf("\n## ", "## My AI’s instructions".length);
-  return nextSection < 0 ? rest : rest.slice(0, nextSection);
+  const briefInstructions = nextSection < 0 ? rest : rest.slice(0, nextSection);
+  return `${briefInstructions}\n\nCoaching mode: Do not give the student's final answer. Give a short hint and explain the first small steps they should try. Do not state the final number, expression, or solution, even in the last sentence. Encourage the student to work it out and check their answer in the app.`;
 }
 
 function safeError(error) {
