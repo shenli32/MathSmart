@@ -12,6 +12,7 @@ const answerCard = document.querySelector("#answer-card");
 const answerText = document.querySelector("#answer-text");
 const statusText = document.querySelector("#status");
 const practiceButton = document.querySelector("#practice-button");
+const stopSpeechButton = document.querySelector("#stop-speech");
 const practiceBox = document.querySelector("#practice-box");
 const practiceQuestion = document.querySelector("#practice-question");
 const practiceInput = document.querySelector("#practice-answer");
@@ -41,6 +42,11 @@ function speak(text) {
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(new SpeechSynthesisUtterance(text));
   }
+}
+
+function stopSpeaking() {
+  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+  setStatus("Reading stopped. You can still read the explanation.");
 }
 
 function updatePet() {
@@ -187,6 +193,7 @@ petSelect.addEventListener("change", updatePet);
 askButton.addEventListener("click", askMath);
 listenButton.addEventListener("click", startListening);
 practiceButton.addEventListener("click", makePracticeProblem);
+stopSpeechButton.addEventListener("click", stopSpeaking);
 practiceCheck.addEventListener("click", checkPractice);
 practiceInput.addEventListener("keydown", event => { if (event.key === "Enter") checkPractice(); });
 updatePet();
