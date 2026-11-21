@@ -33,4 +33,4 @@ To put it online, import this GitHub repository into Vercel and set these Projec
 - `KEYGEN_URL`
 - `KEYGEN_TOKEN`
 
-No other Vercel setting is required. The Vercel project should use the repository root and the included `vercel.json`.
+No other Vercel setting is required. The Vercel project should use the repository root and the included `vercel.json`; Vercel will use its built-in Node.js runtime for `api/ask.js`.
