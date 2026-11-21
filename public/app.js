@@ -129,10 +129,41 @@ function startListening() {
 }
 
 function makePracticeProblem() {
-  const a = Math.floor(Math.random() * 8) + 2;
-  const b = Math.floor(Math.random() * 8) + 2;
-  currentPracticeAnswer = a + b;
-  practiceQuestion.textContent = `What is ${a} + ${b}?`;
+  const topic = questionInput.value.trim().toLowerCase();
+  let question;
+
+  if (topic.includes("limit")) {
+    currentPracticeAnswer = 5;
+    question = "Find the limit as x approaches 2: x + 3";
+  } else if (topic.includes("derivative") || topic.includes("differentiate")) {
+    currentPracticeAnswer = 6;
+    question = "If f(x) = x², what is f′(3)?";
+  } else if (topic.includes("integral") || topic.includes("integrate")) {
+    currentPracticeAnswer = 4;
+    question = "What is ∫ 2x dx from x = 0 to x = 2?";
+  } else if (topic.includes("percent") || topic.includes("percentage")) {
+    currentPracticeAnswer = 20;
+    question = "What is 20% of 100?";
+  } else if (topic.includes("divide") || topic.includes("division") || topic.includes("÷") || topic.includes("/")) {
+    currentPracticeAnswer = 6;
+    question = "What is 24 ÷ 4?";
+  } else if (topic.includes("multiply") || topic.includes("multiplication") || topic.includes("times") || topic.includes("×")) {
+    currentPracticeAnswer = 24;
+    question = "What is 6 × 4?";
+  } else if (topic.includes("subtract") || topic.includes("minus") || topic.includes("difference")) {
+    currentPracticeAnswer = 7;
+    question = "What is 15 − 8?";
+  } else if (topic.includes("equation") || topic.includes("solve for") || topic.includes("variable")) {
+    currentPracticeAnswer = 4;
+    question = "Solve for x: x + 3 = 7";
+  } else {
+    const a = Math.floor(Math.random() * 8) + 2;
+    const b = Math.floor(Math.random() * 8) + 2;
+    currentPracticeAnswer = a + b;
+    question = `What is ${a} + ${b}?`;
+  }
+
+  practiceQuestion.textContent = question;
   practiceInput.value = "";
   practiceResult.textContent = "";
   practiceBox.hidden = false;
