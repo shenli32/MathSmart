@@ -33,6 +33,9 @@ h2, h3 { margin-top: 0; }
 .hero p { color: var(--muted); line-height: 1.55; }
 .pet { text-align: center; background: var(--peach); border-radius: 24px; padding: 20px 12px; }
 .pet-emoji { font-size: 5.5rem; display: block; line-height: 1.2; }
+.pet-choices { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 12px; }
+.pet-choices button { padding: 7px 3px; border: 1px solid transparent; background: #ffffffaa; font-size: 1.55rem; line-height: 1; }
+.pet-choices button.selected { border-color: var(--purple); background: #eee9ff; box-shadow: 0 0 0 2px #6941c633; }
 label { display: block; font-weight: 800; margin: 0 0 7px; }
 select, input { width: 100%; border: 2px solid var(--line); border-radius: 13px; padding: 12px 14px; color: var(--ink); background: white; font: inherit; }
 .workspace { margin-top: 22px; padding: 26px; }

@@ -11,6 +11,7 @@ const pets = {
 
 const petSelect = document.querySelector("#pet-select");
 const petEmoji = document.querySelector("#pet-emoji");
+const petChoices = document.querySelector("#pet-choices");
 const questionInput = document.querySelector("#question");
 const askButton = document.querySelector("#ask-button");
 const answerCard = document.querySelector("#answer-card");
@@ -58,6 +59,16 @@ function updatePet() {
   const pet = pets[petSelect.value];
   petEmoji.textContent = pet.emoji;
   petEmoji.setAttribute("aria-label", pet.name);
+  petChoices?.querySelectorAll("button").forEach(button => {
+    button.classList.toggle("selected", button.dataset.pet === petSelect.value);
+  });
+}
+
+function choosePet(event) {
+  const button = event.target.closest("button[data-pet]");
+  if (!button) return;
+  petSelect.value = button.dataset.pet;
+  updatePet();
 }
 
 async function askMath() {
@@ -195,6 +206,7 @@ function checkPractice() {
 }
 
 petSelect.addEventListener("change", updatePet);
+petChoices?.addEventListener("click", choosePet);
 askButton.addEventListener("click", askMath);
 listenButton.addEventListener("click", startListening);
 practiceButton.addEventListener("click", makePracticeProblem);
