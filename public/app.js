@@ -113,8 +113,14 @@ const stopVoiceButton = document.querySelector("#stop-voice");
 const mathStatus = document.querySelector("#math-status");
 const mathAnswer = document.querySelector("#math-answer");
 const mathAnswerText = document.querySelector("#math-answer-text");
+const practiceCard = document.querySelector("#practice-card");
+const practiceQuestion = document.querySelector("#practice-question");
+const practiceInput = document.querySelector("#practice-answer");
+const practiceResult = document.querySelector("#practice-result");
 let recognition = null;
 let speaking = false;
+let practiceAnswer = null;
+let practiceHint = "";
 
 function setMathStatus(message, error = false) {
   mathStatus.textContent = message;
@@ -137,6 +143,52 @@ function stopMathSpeech() {
   setMathStatus("Reading stopped. You can still read the hint.");
 }
 
+function makePracticeQuestion(originalQuestion) {
+  const topic = originalQuestion.toLowerCase();
+  let question;
+  if (topic.includes("divide") || topic.includes("division") || topic.includes("÷") || topic.includes("/")) {
+    practiceAnswer = 6;
+    practiceHint = "Think about how many groups of 4 fit into 24.";
+    question = "What is 24 ÷ 4?";
+  } else if (topic.includes("multiply") || topic.includes("multiplication") || topic.includes("times") || topic.includes("×")) {
+    practiceAnswer = 24;
+    practiceHint = "Add 6 four times, or think of 6 groups of 4.";
+    question = "What is 6 × 4?";
+  } else if (topic.includes("subtract") || topic.includes("minus") || topic.includes("difference")) {
+    practiceAnswer = 7;
+    practiceHint = "Start at 15 and count backward 8 spaces.";
+    question = "What is 15 − 8?";
+  } else if (topic.includes("percent") || topic.includes("percentage")) {
+    practiceAnswer = 20;
+    practiceHint = "Twenty percent means 20 out of every 100.";
+    question = "What is 20% of 100?";
+  } else {
+    practiceAnswer = 13;
+    practiceHint = "Put the two numbers together and count on from 8.";
+    question = "What is 8 + 5?";
+  }
+  practiceQuestion.textContent = question;
+  practiceInput.value = "";
+  practiceResult.textContent = "";
+  practiceResult.className = "practice-result";
+  practiceCard.hidden = false;
+}
+
+function checkPracticeAnswer() {
+  if (!practiceInput.value.trim()) {
+    practiceResult.textContent = "Type your answer first.";
+    practiceResult.className = "practice-result error";
+    return;
+  }
+  if (Number(practiceInput.value) === practiceAnswer) {
+    practiceResult.textContent = "Correct! Great work!";
+    practiceResult.className = "practice-result success";
+  } else {
+    practiceResult.textContent = "Not yet. Try again or ask for a hint.";
+    practiceResult.className = "practice-result error";
+  }
+}
+
 async function askMathQuestion() {
   const question = mathQuestion.value.trim();
   if (!question) { setMathStatus("Say or type a math question first.", true); return; }
@@ -154,6 +206,7 @@ async function askMathQuestion() {
     if (!response.ok || body.error) throw new Error(body.error?.message || "The math helper could not answer right now.");
     mathAnswerText.textContent = body.answer;
     mathAnswer.hidden = false;
+    makePracticeQuestion(question);
     speakMath(body.answer);
     setMathStatus("Your hint is ready. Try the next step yourself!");
   } catch (error) {
@@ -186,5 +239,11 @@ voiceButton.addEventListener("click", listenForMath);
 mathSubmit.addEventListener("click", askMathQuestion);
 stopVoiceButton.addEventListener("click", stopMathSpeech);
 mathQuestion.addEventListener("keydown", event => { if (event.key === "Enter") askMathQuestion(); });
+document.querySelector("#check-practice").addEventListener("click", checkPracticeAnswer);
+document.querySelector("#show-hint").addEventListener("click", () => {
+  practiceResult.textContent = practiceHint;
+  practiceResult.className = "practice-result hint-text";
+});
+practiceInput.addEventListener("keydown", event => { if (event.key === "Enter") checkPracticeAnswer(); });
 
 render();

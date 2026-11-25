@@ -40,3 +40,4 @@ The front page is now MathSmart: a kid-friendly Tamagotchi-style pet game with a
 
 The MathSmart page includes a voice helper. It uses the browser microphone and speech synthesis, and sends the question to the server-only `/api/ask` route so the AI key stays off the page. The typing box is the fallback when voice input is unavailable. Pet artwork is CSS-drawn, with no emoji characters.
 The AI math response is coached into 2–4 short steps followed by a “Try it” line, so the student can work through the problem instead of only seeing a one-line result.
+After each AI explanation, the page gives the student a similar practice question with separate Check and Show me a hint buttons.
