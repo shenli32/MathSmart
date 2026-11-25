@@ -23,6 +23,7 @@ const petSvg = type => {
 const game = PetPocketStorage.get();
 const elements = {
   name: document.querySelector("#pet-name"), nameHeading: document.querySelector("#pet-name-heading"),
+  practicePetName: document.querySelector("#practice-pet-name"),
   careName: document.querySelector("#care-name"), title: document.querySelector("#pet-title"),
   face: document.querySelector("#pet-face"), mood: document.querySelector("#pet-mood"),
   coins: document.querySelector("#coin-count"), savings: document.querySelector("#savings-count"),
@@ -37,6 +38,7 @@ function render() {
   const pet = pets[game.type] || pets.dog;
   elements.name.value = game.name;
   elements.nameHeading.textContent = game.name;
+  elements.practicePetName.textContent = game.name;
   elements.careName.textContent = game.name;
   elements.title.textContent = `${game.name} the ${pet.label}`;
   elements.face.textContent = "";
