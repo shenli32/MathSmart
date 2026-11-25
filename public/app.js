@@ -4,6 +4,11 @@ const pets = {
   bunny: { emoji: "🐰", label: "Bunny" },
   hamster: { emoji: "🐹", label: "Hamster" },
   turtle: { emoji: "🐢", label: "Turtle" },
+  fox: { emoji: "🦊", label: "Fox" },
+  owl: { emoji: "🦉", label: "Owl" },
+  penguin: { emoji: "🐧", label: "Penguin" },
+  frog: { emoji: "🐸", label: "Frog" },
+  parrot: { emoji: "🦜", label: "Parrot" },
 };
 
 const game = PetPocketStorage.get();
