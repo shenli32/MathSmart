@@ -65,6 +65,18 @@
       <p class="status" id="status" role="status" aria-live="polite">Your pet is waiting for you!</p>
     </section>
 
+    <section class="card math-card" aria-labelledby="math-title">
+      <div class="section-heading"><span class="section-icon">🔢</span><div><p class="eyebrow">MathSmart helper</p><h2 id="math-title">Ask a math question</h2></div></div>
+      <p class="math-intro">Say a problem out loud. MathSmart will give you a helpful hint and explain the first steps.</p>
+      <div class="math-input-row">
+        <input id="math-question" autocomplete="off" placeholder="Example: What is 24 ÷ 6?" aria-label="Your math question">
+        <button class="voice-button" id="voice-button" type="button" aria-label="Say a math problem">🎙️</button>
+      </div>
+      <div class="math-actions"><button class="button" id="math-submit" type="button">Explain with a hint</button><button class="quiet-button" id="stop-voice" type="button">⏹ Stop reading</button></div>
+      <p class="math-status" id="math-status" role="status" aria-live="polite">Press the microphone and say a math problem.</p>
+      <div class="math-answer" id="math-answer" hidden><h3>Here’s a hint</h3><p id="math-answer-text"></p></div>
+    </section>
+
     <section class="card savings-card" aria-labelledby="savings-title">
       <div class="savings-icon">🐷</div>
       <div><p class="eyebrow">Your savings</p><h2 id="savings-title"><span id="savings-count">0</span> coins earned</h2><p id="savings-message">Play with your pet to earn more coins.</p></div>
