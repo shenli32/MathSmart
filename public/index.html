@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PetPocket — Your tiny pet friend</title>
+  <title>MathSmart — Learn with your pet friend</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main class="page-shell">
     <header class="topbar">
-      <a class="brand" href="./" aria-label="PetPocket home"><span class="brand-star">✦</span><span>PetPocket</span></a>
-      <div class="coin-pill" aria-label="Coins saved"><span>🪙</span> <strong id="coin-count">0</strong> coins</div>
+      <a class="brand" href="./" aria-label="MathSmart home"><span class="brand-star" aria-hidden="true"></span><span>MathSmart</span></a>
+      <div class="coin-pill" aria-label="Coins saved"><strong id="coin-count">0</strong> coins</div>
     </header>
 
     <section class="welcome-card" aria-labelledby="welcome-title">
@@ -19,15 +19,15 @@
         <h1 id="welcome-title">Meet <span id="pet-name-heading">your pet</span>!</h1>
         <p>Take care of your pet, play together, and earn coins as you go.</p>
       </div>
-      <div class="sparkle" aria-hidden="true">✦</div>
+      <div class="sparkle" aria-hidden="true"></div>
     </section>
 
     <section class="pet-card" aria-labelledby="pet-title">
       <div class="pet-stage">
-        <div class="cloud cloud-one" aria-hidden="true">☁️</div>
-        <div class="cloud cloud-two" aria-hidden="true">☁️</div>
-        <div class="pet-face" id="pet-face" role="img" aria-label="Your pet">🐶</div>
-        <div class="hearts" id="hearts" aria-hidden="true">♥ ♥ ♥</div>
+        <div class="cloud cloud-one" aria-hidden="true"></div>
+        <div class="cloud cloud-two" aria-hidden="true"></div>
+        <div class="pet-face pet-art pet-dog" id="pet-face" role="img" aria-label="Your pet"></div>
+        <div class="hearts" id="hearts" aria-hidden="true"><span></span><span></span><span></span></div>
       </div>
       <div class="pet-info">
         <p class="pet-mood" id="pet-mood">Ready to play!</p>
@@ -40,42 +40,42 @@
     </section>
 
     <section class="setup-card card" aria-labelledby="setup-title">
-      <div class="section-heading"><span class="section-icon">📝</span><div><p class="eyebrow">Make it yours</p><h2 id="setup-title">Name your pet</h2></div></div>
+      <div class="section-heading"><span class="section-icon note-icon" aria-hidden="true"></span><div><p class="eyebrow">Make it yours</p><h2 id="setup-title">Name your pet</h2></div></div>
       <div class="setup-row">
         <label for="pet-name">Pet name</label>
         <input id="pet-name" maxlength="18" placeholder="Type a name" autocomplete="off">
         <button class="button small" id="save-name" type="button">Save name</button>
       </div>
       <div class="pet-picker" role="group" aria-label="Choose your pet">
-        <button class="pet-choice selected" data-pet="dog" type="button" aria-label="Choose a dog">🐶<span>Dog</span></button>
-        <button class="pet-choice" data-pet="cat" type="button" aria-label="Choose a cat">🐱<span>Cat</span></button>
-        <button class="pet-choice" data-pet="bunny" type="button" aria-label="Choose a bunny">🐰<span>Bunny</span></button>
-        <button class="pet-choice" data-pet="hamster" type="button" aria-label="Choose a hamster">🐹<span>Hamster</span></button>
-        <button class="pet-choice" data-pet="turtle" type="button" aria-label="Choose a turtle">🐢<span>Turtle</span></button>
-        <button class="pet-choice" data-pet="fox" type="button" aria-label="Choose a fox">🦊<span>Fox</span></button>
-        <button class="pet-choice" data-pet="owl" type="button" aria-label="Choose an owl">🦉<span>Owl</span></button>
-        <button class="pet-choice" data-pet="penguin" type="button" aria-label="Choose a penguin">🐧<span>Penguin</span></button>
-        <button class="pet-choice" data-pet="frog" type="button" aria-label="Choose a frog">🐸<span>Frog</span></button>
-        <button class="pet-choice" data-pet="parrot" type="button" aria-label="Choose a parrot">🦜<span>Parrot</span></button>
+        <button class="pet-choice selected" data-pet="dog" type="button" aria-label="Choose a dog"><span class="choice-art pet-dog"></span><span>Dog</span></button>
+        <button class="pet-choice" data-pet="cat" type="button" aria-label="Choose a cat"><span class="choice-art pet-cat"></span><span>Cat</span></button>
+        <button class="pet-choice" data-pet="bunny" type="button" aria-label="Choose a bunny"><span class="choice-art pet-bunny"></span><span>Bunny</span></button>
+        <button class="pet-choice" data-pet="hamster" type="button" aria-label="Choose a hamster"><span class="choice-art pet-hamster"></span><span>Hamster</span></button>
+        <button class="pet-choice" data-pet="turtle" type="button" aria-label="Choose a turtle"><span class="choice-art pet-turtle"></span><span>Turtle</span></button>
+        <button class="pet-choice" data-pet="fox" type="button" aria-label="Choose a fox"><span class="choice-art pet-fox"></span><span>Fox</span></button>
+        <button class="pet-choice" data-pet="owl" type="button" aria-label="Choose an owl"><span class="choice-art pet-owl"></span><span>Owl</span></button>
+        <button class="pet-choice" data-pet="penguin" type="button" aria-label="Choose a penguin"><span class="choice-art pet-penguin"></span><span>Penguin</span></button>
+        <button class="pet-choice" data-pet="frog" type="button" aria-label="Choose a frog"><span class="choice-art pet-frog"></span><span>Frog</span></button>
+        <button class="pet-choice" data-pet="parrot" type="button" aria-label="Choose a parrot"><span class="choice-art pet-parrot"></span><span>Parrot</span></button>
       </div>
     </section>
 
     <section class="card care-card" aria-labelledby="care-title">
-      <div class="section-heading"><span class="section-icon">💛</span><div><p class="eyebrow">What should we do?</p><h2 id="care-title">Care for <span id="care-name">your pet</span></h2></div></div>
+      <div class="section-heading"><span class="section-icon heart-icon" aria-hidden="true"></span><div><p class="eyebrow">What should we do?</p><h2 id="care-title">Care for <span id="care-name">your pet</span></h2></div></div>
       <div class="action-grid">
-        <button class="action-button food" id="feed-button" type="button"><span>🍎</span><strong>Feed</strong><small>+happiness</small></button>
-        <button class="action-button play" id="play-button" type="button"><span>🎾</span><strong>Play</strong><small>earn 5 coins</small></button>
-        <button class="action-button rest" id="rest-button" type="button"><span>😴</span><strong>Rest</strong><small>+energy</small></button>
+        <button class="action-button food" id="feed-button" type="button"><span class="action-icon">+</span><strong>Feed</strong><small>+happiness</small></button>
+        <button class="action-button play" id="play-button" type="button"><span class="action-icon">★</span><strong>Play</strong><small>earn 5 coins</small></button>
+        <button class="action-button rest" id="rest-button" type="button"><span class="action-icon">Zzz</span><strong>Rest</strong><small>+energy</small></button>
       </div>
       <p class="status" id="status" role="status" aria-live="polite">Your pet is waiting for you!</p>
     </section>
 
     <section class="card math-card" aria-labelledby="math-title">
-      <div class="section-heading"><span class="section-icon">🔢</span><div><p class="eyebrow">MathSmart helper</p><h2 id="math-title">Ask a math question</h2></div></div>
+      <div class="section-heading"><span class="section-icon math-icon" aria-hidden="true">+</span><div><p class="eyebrow">MathSmart helper</p><h2 id="math-title">Ask a math question</h2></div></div>
       <p class="math-intro">Say a problem out loud. MathSmart will give you a helpful hint and explain the first steps.</p>
       <div class="math-input-row">
         <input id="math-question" autocomplete="off" placeholder="Example: What is 24 ÷ 6?" aria-label="Your math question">
-        <button class="voice-button" id="voice-button" type="button" aria-label="Say a math problem">🎙️</button>
+        <button class="voice-button" id="voice-button" type="button" aria-label="Say a math problem">Mic</button>
       </div>
       <div class="math-actions"><button class="button" id="math-submit" type="button">Explain with a hint</button><button class="quiet-button" id="stop-voice" type="button">⏹ Stop reading</button></div>
       <p class="math-status" id="math-status" role="status" aria-live="polite">Press the microphone and say a math problem.</p>
@@ -83,12 +83,12 @@
     </section>
 
     <section class="card savings-card" aria-labelledby="savings-title">
-      <div class="savings-icon">🐷</div>
+      <div class="savings-icon" aria-hidden="true">$</div>
       <div><p class="eyebrow">Your savings</p><h2 id="savings-title"><span id="savings-count">0</span> coins earned</h2><p id="savings-message">Play with your pet to earn more coins.</p></div>
     </section>
 
     <button class="reset-button" id="reset-button" type="button">Start over</button>
-    <p class="footer-note">PetPocket saves your pet and coins in this browser.</p>
+    <p class="footer-note">MathSmart saves your pet and coins in this browser.</p>
   </main>
   <script src="storage.js"></script>
   <script src="app.js"></script>

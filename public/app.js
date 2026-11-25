@@ -1,14 +1,7 @@
 const pets = {
-  dog: { emoji: "🐶", label: "Dog" },
-  cat: { emoji: "🐱", label: "Cat" },
-  bunny: { emoji: "🐰", label: "Bunny" },
-  hamster: { emoji: "🐹", label: "Hamster" },
-  turtle: { emoji: "🐢", label: "Turtle" },
-  fox: { emoji: "🦊", label: "Fox" },
-  owl: { emoji: "🦉", label: "Owl" },
-  penguin: { emoji: "🐧", label: "Penguin" },
-  frog: { emoji: "🐸", label: "Frog" },
-  parrot: { emoji: "🦜", label: "Parrot" },
+  dog: { label: "Dog" }, cat: { label: "Cat" }, bunny: { label: "Bunny" }, hamster: { label: "Hamster" },
+  turtle: { label: "Turtle" }, fox: { label: "Fox" }, owl: { label: "Owl" }, penguin: { label: "Penguin" },
+  frog: { label: "Frog" }, parrot: { label: "Parrot" },
 };
 
 const game = PetPocketStorage.get();
@@ -30,7 +23,8 @@ function render() {
   elements.nameHeading.textContent = game.name;
   elements.careName.textContent = game.name;
   elements.title.textContent = `${game.name} the ${pet.label}`;
-  elements.face.textContent = pet.emoji;
+  elements.face.textContent = "";
+  elements.face.className = `pet-face pet-art pet-${game.type}`;
   elements.face.setAttribute("aria-label", `${game.name} the ${pet.label}`);
   elements.coins.textContent = game.coins;
   elements.savings.textContent = game.coins;

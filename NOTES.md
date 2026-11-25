@@ -35,7 +35,7 @@ To put it online, import this GitHub repository into Vercel and set these Projec
 
 No other Vercel setting is required. The Vercel project should use the repository root and the included `vercel.json`; Vercel will use its built-in Node.js runtime for `api/ask.js`.
 
-## PetPocket static website
-The front page is now a kid-friendly Tamagotchi-style pet game in `public/`. It uses only HTML, CSS, and JavaScript. The root `index.html` opens the game for GitHub Pages. The pet name, pet type, coins, happiness, and energy are saved in the browser with localStorage. No server, AI key, library, or build tool is needed for this game.
+## MathSmart static website
+The front page is now MathSmart: a kid-friendly Tamagotchi-style pet game with a math helper in `public/`. It uses only HTML, CSS, and JavaScript. The root `index.html` opens the game for GitHub Pages. The pet name, pet type, coins, happiness, and energy are saved in the browser with localStorage. No library or build tool is needed for the pet game.
 
-The PetPocket page also includes the MathSmart voice helper. It uses the browser microphone and speech synthesis, and sends the question to the server-only `/api/ask` route so the AI key stays off the page. The typing box is the fallback when voice input is unavailable.
+The MathSmart page includes a voice helper. It uses the browser microphone and speech synthesis, and sends the question to the server-only `/api/ask` route so the AI key stays off the page. The typing box is the fallback when voice input is unavailable. Pet artwork is CSS-drawn, with no emoji characters.
