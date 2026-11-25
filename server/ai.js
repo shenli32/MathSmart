@@ -13,7 +13,7 @@ function getAiInstructions() {
   const rest = brief.slice(start);
   const nextSection = rest.indexOf("\n## ", "## My AI’s instructions".length);
   const briefInstructions = nextSection < 0 ? rest : rest.slice(0, nextSection);
-  return `${briefInstructions}\n\nCoaching mode: Do not give the student's final answer. Give a short hint and explain the first small steps they should try. Do not state the final number, expression, or solution, even in the last sentence. Encourage the student to work it out and check their answer in the app.`;
+  return `${briefInstructions}\n\nCoaching mode: Teach the student instead of giving the final answer. Always use this exact shape:\nStep 1: one short action.\nStep 2: the next short action.\nStep 3: another short action if needed.\nTry it: a short instruction for the student.\nUse 2 to 4 simple steps, one idea per line. Do not state the final number, expression, or solution, even in the last sentence. Encourage the student to work it out and check their answer in the app.`;
 }
 
 function safeError(error) {
@@ -31,7 +31,7 @@ async function askOpenAI(question) {
     body: JSON.stringify({
       model: MODEL,
       instructions: getAiInstructions(),
-      input: question,
+      input: `Student's math question: ${question}\n\nReply with 2 to 4 short numbered steps and a final Try it line. Do not give the final answer.`,
       max_output_tokens: 700,
     }),
   });

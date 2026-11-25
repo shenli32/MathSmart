@@ -39,3 +39,4 @@ No other Vercel setting is required. The Vercel project should use the repositor
 The front page is now MathSmart: a kid-friendly Tamagotchi-style pet game with a math helper in `public/`. It uses only HTML, CSS, and JavaScript. The root `index.html` opens the game for GitHub Pages. The pet name, pet type, coins, happiness, and energy are saved in the browser with localStorage. No library or build tool is needed for the pet game.
 
 The MathSmart page includes a voice helper. It uses the browser microphone and speech synthesis, and sends the question to the server-only `/api/ask` route so the AI key stays off the page. The typing box is the fallback when voice input is unavailable. Pet artwork is CSS-drawn, with no emoji characters.
+The AI math response is coached into 2–4 short steps followed by a “Try it” line, so the student can work through the problem instead of only seeing a one-line result.
