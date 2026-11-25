@@ -34,3 +34,6 @@ To put it online, import this GitHub repository into Vercel and set these Projec
 - `KEYGEN_TOKEN`
 
 No other Vercel setting is required. The Vercel project should use the repository root and the included `vercel.json`; Vercel will use its built-in Node.js runtime for `api/ask.js`.
+
+## PetPocket static website
+The front page is now a kid-friendly Tamagotchi-style pet game in `public/`. It uses only HTML, CSS, and JavaScript. The root `index.html` opens the game for GitHub Pages. The pet name, pet type, coins, happiness, and energy are saved in the browser with localStorage. No server, AI key, library, or build tool is needed for this game.

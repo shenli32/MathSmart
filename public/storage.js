@@ -1,34 +1,13 @@
-// One small browser-storage file so a real database can replace it later.
-const MathSmartStorage = (() => {
-  const KEY = "mathsmart-progress-v1";
-  const sample = { questionsAsked: 0, practiceDone: 0, recentQuestion: "" };
+const PetPocketStorage = (() => {
+  const KEY = "petpocket-save-v1";
+  const starter = { name: "Buddy", type: "dog", coins: 0, happiness: 80, energy: 80 };
 
-  function read() {
-    try {
-      return { ...sample, ...JSON.parse(localStorage.getItem(KEY) || "{}") };
-    } catch {
-      return { ...sample };
-    }
+  function get() {
+    try { return { ...starter, ...JSON.parse(localStorage.getItem(KEY) || "{}") }; }
+    catch { return { ...starter }; }
   }
 
-  function write(progress) {
-    localStorage.setItem(KEY, JSON.stringify(progress));
-  }
+  function save(game) { localStorage.setItem(KEY, JSON.stringify(game)); return game; }
 
-  return {
-    get() { return read(); },
-    recordQuestion(question) {
-      const progress = read();
-      progress.questionsAsked += 1;
-      progress.recentQuestion = question;
-      write(progress);
-      return progress;
-    },
-    recordPractice() {
-      const progress = read();
-      progress.practiceDone += 1;
-      write(progress);
-      return progress;
-    },
-  };
+  return { get, save, reset() { localStorage.removeItem(KEY); return get(); } };
 })();
